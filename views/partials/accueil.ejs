@@ -1,0 +1,40 @@
+<div class="container-fluid ">
+    <div class="cl-mcont">
+        <div class="page-header">
+            <h1><img src="images/CSICYBER_S2.jpeg" class="img-rounded">
+            La télésérie CYBER CSI saison 2</h1>
+        </div>
+
+    <% result = 0.1; %>
+
+    <% filmotheque.forEach(function(film){ %>
+        <% result = (filmotheque.indexOf(film)+1) / nombreImageParligne; %>
+
+        <% if(filmotheque.indexOf(film) == 0) { %>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+        <% } %>
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                        <img src="<%- film.image %>">
+                        <div class="caption">
+                            <h3><%- film.titre %></h3>
+                            <p><%- film.description %></p>
+                            <h5>Date de diffusion : <%- film.dateDiffusion %></h5>
+                        </div>
+                    </div>
+                </div>
+        <% if(filmotheque.indexOf(film) == filmotheque.length) { %>
+            </div>
+        </div><!-- row -->
+        <% } else if (Number.isInteger(result)) { %>
+            </div>
+        </div><!-- row -->
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+        <% } %>
+
+    <% }) %>
+
+  </div><!-- cl-mcont -->
+</div><!-- container-->
