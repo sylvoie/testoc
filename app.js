@@ -19,18 +19,6 @@ app.get("/", function(req, res){
    res.render("main", {filmotheque: seedDB});
 });
 
-
-app.get("/results", function(req, res){
-    var query = req.query.search;
-    var url = "http://omdbapi.com/?s=" + query;
-    request(url, function(error, response, body){
-        if(!error && response.statusCode == 200) {
-            var data = JSON.parse(body)
-            res.render("results", {data: data});
-        }
-    });
-});
-
 app.listen(server_port, function () {
   console.log( "Listening on port " + server_port )
 });
